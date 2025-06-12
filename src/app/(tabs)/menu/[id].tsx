@@ -1,5 +1,5 @@
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
-import { Text, Image, StyleSheet, View, Pressable } from "react-native";
+import { Text, Image, StyleSheet, View, Pressable, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import products from "@/assets/data/products";
 import { defaultPizzaImage } from "@/src/components/ProductListItem";
@@ -25,6 +25,7 @@ const ProductDetailsScreen = () => {
       return;
     }
     addItem(product, selectedSize);
+    Alert.alert(`${product.name} added to cart`);
     router.push('');
   };
   if (!product) {
